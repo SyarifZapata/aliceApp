@@ -16,7 +16,6 @@ export class UserComponent implements OnInit {
         console.log(data);
         },
       error => {
-        console.log('error nya disinii loh');
         console.log(error);
         this._router.navigate(['/login']);
       }
