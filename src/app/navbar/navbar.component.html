@@ -2,7 +2,20 @@
 <nav>
   <div class="nav-wrapper">
     <div class="syarif-icon">
-      <i class="medium material-icons left hide-on-large-only">dehaze</i>
+      <!-- Dropdown Trigger -->
+      <a class='dropdown-trigger' href='#' data-target='dropdownMenu'><i class="medium material-icons left hide-on-large-only">dehaze</i></a>
+
+      <!-- Dropdown Structure -->
+      <ul id='dropdownMenu' class='dropdown-content'>
+        <li><a routerLinkActive="active" routerLink="/home"><i class="material-icons">view_module</i>Home</a></li>
+        <li [style.display]="loggedIn ? 'block' : 'none'"><a routerLinkActive="active" routerLink="/user"><i class="material-icons">view_module</i>Memberbereich</a></li>
+        <li><a routerLinkActive="active" routerLink="/uebungen"><i class="material-icons">view_module</i>Übungen</a> </li>
+        <li><a class="syarif-separator" routerLinkActive="active" routerLink="/about"><i class="material-icons">view_module</i>Über Mich</a></li>
+        <li class="divider" tabindex="-1"></li>
+        <li [style.display]="loggedIn ? 'block' : 'none'"><a routerLinkActive="active" (click)="logout()"><i class="material-icons">view_module</i>Auslogen</a></li>
+        <li [style.display]="loggedIn ? 'none' : 'block'"><a routerLinkActive="active" routerLink="/login"><i class="material-icons">face</i>Login</a></li>
+        <li [style.display]="loggedIn ? 'none' : 'block'"><a routerLinkActive="active" routerLink="/register"><i class="material-icons">account_circle</i>Registrieren</a></li>
+      </ul>
     </div>
 
     <a href="#" class="syarif-logo brand-logo right">Sang-Hackaton</a>
@@ -17,4 +30,3 @@
     </ul>
   </div>
 </nav>
-<div class="containerNav z-depth-2"></div>
