@@ -50,10 +50,13 @@ passport.use('facebook',new FacebookStrategy({
     // #1 firsttime login => create new FacebookUser
     // #2 other times
     FacebookUser.findOne({where:{facebook_id:profile.id}}).then((user) =>{
-      if(user !== null) {return done(null,user)}
+      if(user !== null) {
+        return done(null,user)
+      }
       FacebookUser.create({
         facebook_id: profile.id,
-        username: profile.displayName
+        username: profile.displayName,
+        picture: profile.photos[0].value
       }).then((newUser) => {
         done(null,newUser)
       })

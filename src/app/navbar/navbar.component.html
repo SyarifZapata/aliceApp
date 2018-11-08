@@ -8,13 +8,13 @@
       <!-- Dropdown Structure -->
       <ul id='dropdownMenu' class='dropdown-content'>
         <li><a routerLinkActive="active" routerLink="/home"><i class="material-icons">view_module</i>Home</a></li>
-        <li [style.display]="loggedIn ? 'block' : 'none'"><a routerLinkActive="active" routerLink="/user"><i class="material-icons">view_module</i>Memberbereich</a></li>
         <li><a routerLinkActive="active" routerLink="/uebungen"><i class="material-icons">view_module</i>Übungen</a> </li>
         <li><a class="syarif-separator" routerLinkActive="active" routerLink="/about"><i class="material-icons">view_module</i>Über Mich</a></li>
         <li class="divider" tabindex="-1"></li>
         <li [style.display]="loggedIn ? 'block' : 'none'"><a routerLinkActive="active" (click)="logout()"><i class="material-icons">view_module</i>Auslogen</a></li>
         <li [style.display]="loggedIn ? 'none' : 'block'"><a routerLinkActive="active" routerLink="/login"><i class="material-icons">face</i>Login</a></li>
         <li [style.display]="loggedIn ? 'none' : 'block'"><a routerLinkActive="active" routerLink="/register"><i class="material-icons">account_circle</i>Registrieren</a></li>
+        <li [style.display]="loggedIn ? 'block' : 'none'"><a routerLinkActive="active" routerLink="/user"><i class="material-icons">view_module</i>Memberbereich</a></li>
       </ul>
     </div>
 
@@ -22,11 +22,14 @@
     <ul id="nav-mobile" class="left hide-on-med-and-down syarif-nav">
       <li><a  routerLinkActive="active" routerLink="/home">Home</a></li>
       <li><a  routerLinkActive="active" routerLink="/uebungen">Übungen</a> </li>
-      <li><a  [style.display]="loggedIn ? 'block' : 'none'" routerLinkActive="active" routerLink="/user">Memberbereich</a> </li>
       <li><a  class="syarif-separator" routerLinkActive="active" routerLink="/about">Über Mich</a> </li>
       <li><a  [style.display]="loggedIn ? 'block' : 'none'" routerLinkActive="active" (click)="logout()">ausloggen</a> </li>
       <li><a  [style.display]="loggedIn ? 'none' : 'block'" routerLinkActive="active" routerLink="/login">Login</a> </li>
       <li><a  [style.display]="loggedIn ? 'none' : 'block'" routerLinkActive="active" routerLink="/register">Registrieren</a> </li>
+      <li>
+          <img src="https://platform-lookaside.fbsbx.com/platform/profilepic/?asid=10217929616138433&height=50&width=50&ext=1544223829&hash=AeSicwCakKHOqqFQ" alt="" class="circle syarif-profil-picture responsive-img">
+      </li>
+      <li><a  [style.display]="loggedIn ? 'block' : 'none'" routerLinkActive="active" routerLink="/user">Memberbereich</a> </li>
     </ul>
   </div>
 </nav>

@@ -92,14 +92,20 @@ router.get('/logout',isValidUser, (req,res,next) => {
     when he/she tries to access the member-only page
  */
 router.get('/user', isValidUser, (req, res, next) => {
-  return res.status(200).json({message: 'Sie sind eingeloggt'})
+  return res.status(200).json({
+    message: 'Sie sind eingeloggt',
+    username:req.user.dataValues.username,
+    picture:req.user.dataValues.picture
+  })
 });
 
 /*  This function will be passed to /user and /logout routes
     It is built in function provided by passport js
  */
 function isValidUser(req,res,next){
-  if(req.isAuthenticated()) {next();}
+  if(req.isAuthenticated()) {
+    next();
+  }
   else return res.status(401).json({message:'Memberbereich, bitte einloggen'})
 }
 
