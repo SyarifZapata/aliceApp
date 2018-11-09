@@ -11,18 +11,29 @@ import * as M from 'materialize-css';
 export class NavbarComponent implements OnInit, AfterViewInit {
   // We use this value to show logout and memberpage button on the navbar
   loggedIn: boolean;
+  profilPicture: string;
 
   constructor(private _dataService: DataService, private _router: Router) { }
 
   ngOnInit() {
     // The value of logged in always get updated whenever it is changed by other component.
-    this._dataService.cast.subscribe(value => this.loggedIn = value);
+    this._dataService.loggedInStatus.subscribe(value => this.loggedIn = value);
+    this._dataService.profilPicture.subscribe(value => this.profilPicture = value);
   }
 
   ngAfterViewInit(){
     document.addEventListener('DOMContentLoaded', function() {
       const elems = document.querySelectorAll('.dropdown-trigger');
-      const instances = M.Dropdown.init(elems, []);
+      const instances = M.Dropdown.init(elems, {
+        widthConstraint: true
+      });
+    });
+
+    document.addEventListener('DOMContentLoaded', function() {
+      const elems = document.querySelectorAll('.dropdown-trigger1');
+      const instances = M.Dropdown.init(elems, {
+        coverTrigger: false,
+      });
     });
   }
 
